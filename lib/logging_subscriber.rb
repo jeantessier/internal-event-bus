@@ -1,5 +1,6 @@
 class LoggingSubscriber
-  def call(name, started, finished, unique_id, payload)
-    Rails.logger.info ['notification:', name, started, finished, unique_id, payload].join(' ')
+  def call(*args)
+    event = ActiveSupport::Notifications::Event.new(*args)
+    Rails.logger.info "[#{self.class.name}] #{event.name} #{event.payload.keys} [#{event.payload.class.name}] (#{event.duration})"
   end
 end
