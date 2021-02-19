@@ -1,24 +1,22 @@
-# README
+# Internal Event Bus
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This example shows how to use Rails's internal event bus to to event-based
+processing.  See [ActiveSupport::Notifications](https://api.rubyonrails.org/classes/ActiveSupport/Notifications.html)
+for more details.
 
-Things you may want to cover:
+A single `EchoController` publishes events.
 
-* Ruby version
+Two subscribers listen for events.  They are registered in the
+`event_subscribers.rb` initializer.  One uses a regex to listen for multiple
+events, while the other listens only to a single specific event type.
 
-* System dependencies
+## Running the Server
 
-* Configuration
+You can start the application with:
 
-* Database creation
+> $ bin/rails server
 
-* Database initialization
+And use the base URL http://localhost:3000/echo/index
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`GET` requests will get echoed in the Rails logs, and all other events internal
+to Rails will be listed there too.
