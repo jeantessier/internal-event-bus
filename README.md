@@ -1,6 +1,6 @@
 # Internal Event Bus
 
-This example shows how to use Rails's internal event bus to to event-based
+This example shows how to use Rails's internal event bus to do event-based
 processing.  See [ActiveSupport::Notifications](https://api.rubyonrails.org/classes/ActiveSupport/Notifications.html)
 for more details.
 
@@ -14,7 +14,7 @@ events, while the other listens only to a single specific event type.
 
 You can start the application with:
 
-> $ bin/rails server
+    $ bin/rails server
 
 And use the base URL http://localhost:3000/echo/index
 
